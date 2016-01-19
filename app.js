@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://liangjiapei1103:12345678@ds047345.mongolab.com:47345/jiapei-liangs-blog';
 MongoClient.connect(url, function (err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to server.");
