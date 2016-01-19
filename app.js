@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var seert = require('assert');
+var assert = require('assert');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
 });
 
 var url = 'mongodb://liangjiapei1103:12345678@ds047345.mongolab.com:47345/jiapei-liangs-blog';
-MongoClient.connect(url, function (err, db) {
+MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to server.");
   db.close();
