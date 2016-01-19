@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -40,6 +42,13 @@ MongoClient.connect(url, function(err, db) {
   console.log("Connected correctly to server.");
   db.close();
 });
+
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: "hi",
+  store: new MongoStore({ url : 'mongodb://liangjiapei1103:12345678@ds047345.mongolab.com:47345/jiapei-liangs-blog'})
+}));
 
 // error handlers
 
